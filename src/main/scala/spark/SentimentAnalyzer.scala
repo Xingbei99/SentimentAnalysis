@@ -79,4 +79,8 @@ object SentimentAnalyzer {
     nonNeutralTextAndScore.map(makeReadable).print
     // Save the result DStream objects into a json file
     nonNeutralTextAndScore.saveAsTextFiles("feeds", "json")
+    
+    streamingContext.start()
+
+  streamingContext.awaitTermination()
 }
